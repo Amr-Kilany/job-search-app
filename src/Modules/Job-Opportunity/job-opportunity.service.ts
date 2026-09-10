@@ -1,9 +1,11 @@
 import type { Request, Response } from "express";
 import JobModel, { type IJob } from "../../DB/Models/Job.model.js";
 import CompanyModel, { type ICompany } from "../../DB/Models/Company.model.js";
+import ApplicationModel from "../../DB/Models/Application.model.js";
 import * as DB from "../../DB/database.repository.js";
 import { ForbiddenException, NotFoundException } from "../../Utils/response/error.response.js";
 import { successResponse } from "../../Utils/response/success.response.js";
+import mongoose from "mongoose";
 
 export const addJob = async (req: Request, res: Response): Promise<void> => {
   const { jobTitle, jobLocation, workingTime, seniorityLevel, jobDescription, technicalSkills, softSkills, companyId } =
@@ -146,5 +148,57 @@ export const getFilteredJobs = async (req: Request, res: Response): Promise<void
     statusCode: 200,
     message: "Jobs retrieved successfully",
     data: { jobs },
+  });
+};
+
+export const getCompanyJobs = async (req: Request, res: Response) => {
+  const { companyId } = req.params;
+  const page = parseInt(req.query.page as string, 10) || 1;
+  const limit = parseInt(req.query.limit as string, 10) || 10;
+  const skip = (page - 1) * limit;
+
+  const filter = { companyId: new mongoose.Types.ObjectId(companyId as string) };
+
+  const [jobs, totalCount] = await Promise.all([
+    JobModel.find(filter).skip(skip).limit(limit).sort({ createdAt: -1 }),
+    JobModel.countDocuments(filter),
+  ]);
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Company jobs fetched successfully",
+    data: {
+      jobs,
+      pagination: { totalCount, page, limit, totalPages: Math.ceil(totalCount / limit) },
+    },
+  });
+};
+
+export const getJobApplications = async (req: Request, res: Response) => {
+  const { jobId } = req.params;
+  const page = parseInt(req.query.page as string, 10) || 1;
+  const limit = parseInt(req.query.limit as string, 10) || 10;
+  const skip = (page - 1) * limit;
+
+  const filter = { jobId: new mongoose.Types.ObjectId(jobId as string) };
+
+  const [applications, totalCount] = await Promise.all([
+    ApplicationModel.find(filter)
+      .populate({ path: "userId", select: "firstName lastName email mobileNumber profilePic" })
+      .skip(skip)
+      .limit(limit)
+      .sort({ createdAt: -1 }),
+    ApplicationModel.countDocuments(filter),
+  ]);
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Job applications fetched successfully",
+    data: {
+      applications,
+      pagination: { totalCount, page, limit, totalPages: Math.ceil(totalCount / limit) },
+    },
   });
 };

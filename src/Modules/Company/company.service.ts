@@ -10,6 +10,7 @@ import {
   NotFoundException,
 } from "../../Utils/response/error.response.js";
 import { successResponse } from "../../Utils/response/success.response.js";
+import mongoose from "mongoose";
 
 export const addCompany = async (req: Request, res: Response): Promise<void> => {
   const { companyName, description, industry, address, numberOfEmployees, companyEmail, HRs } = req.body;
@@ -190,5 +191,93 @@ export const searchCompanyByName = async (req: Request, res: Response): Promise<
     statusCode: 200,
     message: "Companies fetched successfully",
     data: { companies },
+  });
+};
+
+export const uploadCompanyLogo = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  if (!req.file) {
+    return BadRequestException("Please upload an image file");
+  }
+
+  const company = await CompanyModel.findOneAndUpdate(
+    { _id: new mongoose.Types.ObjectId(id as string), CreatedBy: req.user!._id },
+    { logo: { secure_url: req.file.path, public_id: req.file.filename } },
+    { new: true },
+  );
+
+  if (!company) {
+    return NotFoundException("Company not found or unauthorized");
+  }
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Company logo uploaded successfully",
+    data: { company },
+  });
+};
+
+export const uploadCompanyCoverPic = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  if (!req.file) {
+    return BadRequestException("Please upload an image file");
+  }
+
+  const company = await CompanyModel.findOneAndUpdate(
+    { _id: new mongoose.Types.ObjectId(id as string), CreatedBy: req.user!._id },
+    { coverPic: { secure_url: req.file.path, public_id: req.file.filename } },
+    { new: true },
+  );
+
+  if (!company) {
+    return NotFoundException("Company not found or unauthorized");
+  }
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Company cover picture uploaded successfully",
+    data: { company },
+  });
+};
+
+export const deleteCompanyLogo = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const company = await CompanyModel.findOneAndUpdate(
+    { _id: new mongoose.Types.ObjectId(id as string), CreatedBy: req.user!._id },
+    { $unset: { logo: "" } },
+    { new: true },
+  );
+
+  if (!company) {
+    return NotFoundException("Company not found or unauthorized");
+  }
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Company logo deleted successfully",
+    data: { company },
+  });
+};
+
+export const deleteCompanyCoverPic = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const company = await CompanyModel.findOneAndUpdate(
+    { _id: new mongoose.Types.ObjectId(id as string), CreatedBy: req.user!._id },
+    { $unset: { coverPic: "" } },
+    { new: true },
+  );
+
+  if (!company) {
+    return NotFoundException("Company not found or unauthorized");
+  }
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Company cover picture deleted successfully",
+    data: { company },
   });
 };

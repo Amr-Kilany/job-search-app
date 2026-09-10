@@ -43,6 +43,9 @@ export const env = {
   // Email settings
   EMAIL_USER: process.env.EMAIL_USER as string,
   EMAIL_PASS: process.env.EMAIL_PASS as string,
+
+  // Google OAuth settings
+  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID as string,
 };
 
 export type Env = typeof env;

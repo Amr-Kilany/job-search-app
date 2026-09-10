@@ -1,0 +1,2703 @@
+{
+  "info": {
+    "_postman_id": "157aaf11-181b-437e-bd77-7ffe15a26c2a",
+    "name": "Job Search App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53487454",
+    "_collection_link": "https://go.postman.co/collection/53487454-157aaf11-181b-437e-bd77-7ffe15a26c2a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Amr\",\r\n  \"lastName\": \"Kilany\",\r\n  \"email\": \"amrkilanyedu@gmail.com\",\r\n  \"password\": \"Password123\",\r\n  \"mobileNumber\": \"01068561970\",\r\n  \"DOB\": \"2003-12-25\",\r\n  \"gender\": \"MALE\",\r\n  \"role\": \"USER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Signup",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"firstName\": \"Amr\",\r\n  \"lastName\": \"Kilany\",\r\n  \"email\": \"amrkilanyedu@gmail.com\",\r\n  \"password\": \"Password123\",\r\n  \"mobileNumber\": \"01068561970\",\r\n  \"DOB\": \"2003-12-25\",\r\n  \"gender\": \"MALE\",\r\n  \"role\": \"USER\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/auth/signup",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "173"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"ad-Qs2Qr37VqyS3eAvGhydwUX2yzG8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 14:14:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"User registered successfully. Please check your email for the OTP verification code.\",\n    \"data\": {\n        \"user\": {\n            \"username\": \"Amr Kilany\",\n            \"email\": \"amrkilanyedu@gmail.com\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Confirm Email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"amrkilanyedu@gmail.com\",\r\n  \"code\": \"133179\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/confirm-email",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "confirm-email"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Confirm Email",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"amrkilanyedu@gmail.com\",\r\n  \"code\": \"133179\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/auth/confirm-email",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "confirm-email"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "73"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"49-e2XhcwqGPwzy4GAd8Ed9O8753sQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 14:30:58 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Email confirmed successfully. You can now log in.\",\n    \"data\": {}\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login (User)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"amrkilanyedu@gmail.com\",\r\n  \"password\": \"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login (User)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"amrkilanyedu@gmail.com\",\r\n  \"password\": \"Password123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "615"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"267-pMZ2uBYU7JM5M/uosRmYirsLl+U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 14:31:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Logged in successfully\",\n    \"data\": {\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYTE2ZDMyNDc1YmMyY2JjMjNjMjI2YSIsImVtYWlsIjoiYW1ya2lsYW55ZWR1QGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwidG9rZW5UeXBlIjoiQUNDRVNTIiwiaWF0IjoxNzg4OTY0MjcwLCJleHAiOjE3ODg5NjUxNzB9.sTA6Upp4LXYbzMC14vx8P7zkuujrIQ0fVC1PylrTlRY\",\n            \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYTE2ZDMyNDc1YmMyY2JjMjNjMjI2YSIsImVtYWlsIjoiYW1ya2lsYW55ZWR1QGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwidG9rZW5UeXBlIjoiUkVGUkVTSCIsImlhdCI6MTc4ODk2NDI3MCwiZXhwIjoxNzg5NTY5MDcwfQ.k16SgT0Vp_vQZsooafsh4m-Nxkv5Lwf5q4K_zgBrHUI\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"amrkilanyedu@gmail.com\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/forget-password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "forget-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Forgot Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"email\": \"amrkilanyedu@gmail.com\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/auth/forget-password",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "forget-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "69"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"45-VwcqXIx9jXFIdZoJz7S3aqBEC6o\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:31:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Password reset OTP sent to your email address\",\n    \"data\": {}\n}"
+            }
+          ]
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"amrkilanyedu@gmail.com\", \r\n    \"code\": \"608423\", \r\n    \"newPassword\": \"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/reset-password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "reset-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Reset Password",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"amrkilanyedu@gmail.com\", \r\n    \"code\": \"608423\", \r\n    \"newPassword\": \"Password123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/auth/reset-password",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "reset-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "95"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5f-BoOZ3tb3sHB2Dmq4qQXzQfEQZ68\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:50:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Password reset successfully. You can now log in with your new password.\",\n    \"data\": {}\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/user/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Profile",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/user/profile",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "user",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "530"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"212-SFkYHHlW8Jos6Zm//5O6BEaQ/fA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:18:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"User profile retrieved successfully\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n            \"firstName\": \"Amr\",\n            \"lastName\": \"Kilany\",\n            \"email\": \"amrkilanyedu@gmail.com\",\n            \"password\": \"$2b$12$SVMohfkCYv4DgUecNj3XS.OIISW1w5xyzLjTCpN760psJ9dqk061C\",\n            \"provider\": \"SYSTEM\",\n            \"gender\": \"MALE\",\n            \"DOB\": \"2000-01-01T00:00:00.000Z\",\n            \"mobileNumber\": \"+201000000000\",\n            \"role\": \"ADMIN\",\n            \"isConfirmed\": true,\n            \"OTP\": [],\n            \"createdAt\": \"2026-09-09T22:54:38.664Z\",\n            \"updatedAt\": \"2026-09-10T00:11:01.507Z\",\n            \"__v\": 2,\n            \"username\": \"Amr Kilany\",\n            \"id\": \"6aa1e3ae12f2d5ef0b3dcabd\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Amr\",\r\n  \"lastName\": \"Kilany\",\r\n  \"mobileNumber\": \"+201000000000\",\r\n  \"DOB\": \"2000-01-01\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/user/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Profile",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"firstName\": \"Amr\",\r\n  \"lastName\": \"Kilany\",\r\n  \"mobileNumber\": \"+201000000000\",\r\n  \"DOB\": \"2000-01-01\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/user/profile",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "user",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "523"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20b-xi7vNQp8X8DEO6MYH0yJMLjN66U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:11:01 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Profile updated successfully\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n            \"firstName\": \"Amr\",\n            \"lastName\": \"Kilany\",\n            \"email\": \"amrkilanyedu@gmail.com\",\n            \"password\": \"$2b$12$SVMohfkCYv4DgUecNj3XS.OIISW1w5xyzLjTCpN760psJ9dqk061C\",\n            \"provider\": \"SYSTEM\",\n            \"gender\": \"MALE\",\n            \"DOB\": \"2000-01-01T00:00:00.000Z\",\n            \"mobileNumber\": \"+201000000000\",\n            \"role\": \"ADMIN\",\n            \"isConfirmed\": true,\n            \"OTP\": [],\n            \"createdAt\": \"2026-09-09T22:54:38.664Z\",\n            \"updatedAt\": \"2026-09-10T00:11:01.507Z\",\n            \"__v\": 2,\n            \"username\": \"Amr Kilany\",\n            \"id\": \"6aa1e3ae12f2d5ef0b3dcabd\"\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "Add Company",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_02ln}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"companyName\": \"TechCorp\",\r\n  \"description\": \"Leading software agency\",\r\n  \"industry\": \"Software Engineering\",\r\n  \"address\": \"Cairo, Egypt\",\r\n  \"numberOfEmployees\": \"11-20\",\r\n  \"companyEmail\": \"hr@techcorp.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/company",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "company"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Company",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{json_web_token_02ln}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"companyName\": \"TechCorp\",\r\n  \"description\": \"Leading software agency\",\r\n  \"industry\": \"Software Engineering\",\r\n  \"address\": \"Cairo, Egypt\",\r\n  \"numberOfEmployees\": \"11-20\",\r\n  \"companyEmail\": \"hr@techcorp.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/company",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "company"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "471"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1d7-Beb/hrEy++t08H1rCVoA60URvH8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 23:09:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Company created successfully\",\n    \"data\": {\n        \"company\": {\n            \"companyName\": \"TechCorp\",\n            \"description\": \"Leading software agency\",\n            \"industry\": \"Software Engineering\",\n            \"address\": \"Cairo, Egypt\",\n            \"numberOfEmployees\": \"11-20\",\n            \"companyEmail\": \"hr@techcorp.com\",\n            \"CreatedBy\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n            \"HRs\": [],\n            \"approvedByAdmin\": false,\n            \"_id\": \"6aa1e73e4a36ae4b20fec98b\",\n            \"createdAt\": \"2026-09-09T23:09:50.707Z\",\n            \"updatedAt\": \"2026-09-09T23:09:50.707Z\",\n            \"__v\": 0,\n            \"id\": \"6aa1e73e4a36ae4b20fec98b\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Company Data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/company/6aa1e73e4a36ae4b20fec98b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "company",
+                "6aa1e73e4a36ae4b20fec98b"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Company Data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/company/6aa1e73e4a36ae4b20fec98b",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "company",
+                    "6aa1e73e4a36ae4b20fec98b"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1008"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3f0-rL6kpTMt4c3a/qalTWkZ4VfRH2s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:08:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Company details retrieved successfully\",\n    \"data\": {\n        \"company\": {\n            \"_id\": \"6aa1e73e4a36ae4b20fec98b\",\n            \"companyName\": \"TechCorp\",\n            \"description\": \"Leading software agency\",\n            \"industry\": \"Software Engineering\",\n            \"address\": \"Cairo, Egypt\",\n            \"numberOfEmployees\": \"11-20\",\n            \"companyEmail\": \"hr@techcorp.com\",\n            \"CreatedBy\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n            \"HRs\": [],\n            \"approvedByAdmin\": false,\n            \"createdAt\": \"2026-09-09T23:09:50.707Z\",\n            \"updatedAt\": \"2026-09-09T23:09:50.707Z\",\n            \"__v\": 0,\n            \"id\": \"6aa1e73e4a36ae4b20fec98b\"\n        },\n        \"jobs\": [\n            {\n                \"_id\": \"6aa1ed5e23a627fc43d89808\",\n                \"jobTitle\": \"Node.js Backend Developer\",\n                \"jobLocation\": \"on-site\",\n                \"workingTime\": \"full-time\",\n                \"seniorityLevel\": \"Mid-Level\",\n                \"jobDescription\": \"Build robust scalable APIs using Express and TypeScript.\",\n                \"technicalSkills\": [\n                    \"Node.js\",\n                    \"Express\",\n                    \"MongoDB\",\n                    \"TypeScript\"\n                ],\n                \"softSkills\": [\n                    \"Communication\",\n                    \"Problem Solving\"\n                ],\n                \"addedBy\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n                \"closed\": false,\n                \"companyId\": \"6aa1e73e4a36ae4b20fec98b\",\n                \"createdAt\": \"2026-09-09T23:35:58.825Z\",\n                \"updatedAt\": \"2026-09-09T23:35:58.825Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search Company by Name",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_02ln}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/company/search?name=TechCorp",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "company",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "TechCorp"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Search Company by Name",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{json_web_token_02ln}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/company/search?name=TechCorp",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "company",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "TechCorp"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "477"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1dd-/I3Cxhr9YQb/KU1Hr9OdXLbPJHA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 23:19:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Companies fetched successfully\",\n    \"data\": {\n        \"companies\": [\n            {\n                \"_id\": \"6aa1e73e4a36ae4b20fec98b\",\n                \"companyName\": \"TechCorp\",\n                \"description\": \"Leading software agency\",\n                \"industry\": \"Software Engineering\",\n                \"address\": \"Cairo, Egypt\",\n                \"numberOfEmployees\": \"11-20\",\n                \"companyEmail\": \"hr@techcorp.com\",\n                \"CreatedBy\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n                \"HRs\": [],\n                \"approvedByAdmin\": false,\n                \"createdAt\": \"2026-09-09T23:09:50.707Z\",\n                \"updatedAt\": \"2026-09-09T23:09:50.707Z\",\n                \"__v\": 0,\n                \"id\": \"6aa1e73e4a36ae4b20fec98b\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Job Opportunities",
+      "item": [
+        {
+          "name": "Add Job",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"jobTitle\": \"Node.js Backend Developer\",\r\n  \"jobLocation\": \"on-site\",\r\n  \"workingTime\": \"full-time\",\r\n  \"seniorityLevel\": \"Mid-Level\",\r\n  \"jobDescription\": \"Build robust scalable APIs using Express and TypeScript.\",\r\n  \"technicalSkills\": [\"Node.js\", \"Express\", \"MongoDB\", \"TypeScript\"],\r\n  \"softSkills\": [\"Communication\", \"Problem Solving\"],\r\n  \"companyId\": \"6aa1e73e4a36ae4b20fec98b\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/job",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "job"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Job",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"jobTitle\": \"Node.js Backend Developer\",\r\n  \"jobLocation\": \"on-site\",\r\n  \"workingTime\": \"full-time\",\r\n  \"seniorityLevel\": \"Mid-Level\",\r\n  \"jobDescription\": \"Build robust scalable APIs using Express and TypeScript.\",\r\n  \"technicalSkills\": [\"Node.js\", \"Express\", \"MongoDB\", \"TypeScript\"],\r\n  \"softSkills\": [\"Communication\", \"Problem Solving\"],\r\n  \"companyId\": \"6aa1e73e4a36ae4b20fec98b\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/job",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "job"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "583"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"247-x22F3WsGLhrQ35vcrfmeCSgOiIU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 23:35:58 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Job opportunity created successfully\",\n    \"data\": {\n        \"job\": {\n            \"jobTitle\": \"Node.js Backend Developer\",\n            \"jobLocation\": \"on-site\",\n            \"workingTime\": \"full-time\",\n            \"seniorityLevel\": \"Mid-Level\",\n            \"jobDescription\": \"Build robust scalable APIs using Express and TypeScript.\",\n            \"technicalSkills\": [\n                \"Node.js\",\n                \"Express\",\n                \"MongoDB\",\n                \"TypeScript\"\n            ],\n            \"softSkills\": [\n                \"Communication\",\n                \"Problem Solving\"\n            ],\n            \"addedBy\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n            \"closed\": false,\n            \"companyId\": \"6aa1e73e4a36ae4b20fec98b\",\n            \"_id\": \"6aa1ed5e23a627fc43d89808\",\n            \"createdAt\": \"2026-09-09T23:35:58.825Z\",\n            \"updatedAt\": \"2026-09-09T23:35:58.825Z\",\n            \"__v\": 0\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Jobs (with Filters)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/job?page=1&limit=10&sort=-createdAt&jobTitle=Backend",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "job"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "-createdAt"
+                },
+                {
+                  "key": "jobTitle",
+                  "value": "Backend"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Jobs (with Filters)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/job?page=1&limit=10&sort=-createdAt&jobTitle=Backend",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "job"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-createdAt"
+                    },
+                    {
+                      "key": "jobTitle",
+                      "value": "Backend"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "577"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"241-IdPLdnfq3DvMwJFTwyy2VCLGVKY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 23:38:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Jobs retrieved successfully\",\n    \"data\": {\n        \"jobs\": [\n            {\n                \"_id\": \"6aa1ed5e23a627fc43d89808\",\n                \"jobTitle\": \"Node.js Backend Developer\",\n                \"jobLocation\": \"on-site\",\n                \"workingTime\": \"full-time\",\n                \"seniorityLevel\": \"Mid-Level\",\n                \"jobDescription\": \"Build robust scalable APIs using Express and TypeScript.\",\n                \"technicalSkills\": [\n                    \"Node.js\",\n                    \"Express\",\n                    \"MongoDB\",\n                    \"TypeScript\"\n                ],\n                \"softSkills\": [\n                    \"Communication\",\n                    \"Problem Solving\"\n                ],\n                \"addedBy\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n                \"closed\": false,\n                \"companyId\": \"6aa1e73e4a36ae4b20fec98b\",\n                \"createdAt\": \"2026-09-09T23:35:58.825Z\",\n                \"updatedAt\": \"2026-09-09T23:35:58.825Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "Apply to Job (Multipart PDF)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userCV",
+                  "type": "file",
+                  "uuid": "4576ecfd-f8a8-4739-9450-271317b16f58",
+                  "src": "/D:/Amr Work/CV/Amr-Kilany_CV.pdf"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/application/6aa1ed5e23a627fc43d89808",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "application",
+                "6aa1ed5e23a627fc43d89808"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Apply to Job (Multipart PDF)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "userCV",
+                      "type": "file",
+                      "uuid": "4576ecfd-f8a8-4739-9450-271317b16f58",
+                      "src": "/D:/Amr Work/CV/Amr-Kilany_CV.pdf"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/application/6aa1ed5e23a627fc43d89808",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "application",
+                    "6aa1ed5e23a627fc43d89808"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "431"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1af-khq6EzqVscMZSMzyO/q4qjsJmUA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 23:46:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Application submitted successfully\",\n    \"data\": {\n        \"application\": {\n            \"jobId\": \"6aa1ed5e23a627fc43d89808\",\n            \"userId\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n            \"userCV\": {\n                \"secure_url\": \"C:\\\\Users\\\\XEONST~1\\\\AppData\\\\Local\\\\Temp\\\\b4d3e1dcc0dadfe206c8f63fec4cf9d7\",\n                \"public_id\": \"b4d3e1dcc0dadfe206c8f63fec4cf9d7\"\n            },\n            \"status\": \"pending\",\n            \"_id\": \"6aa1efc223a627fc43d89809\",\n            \"createdAt\": \"2026-09-09T23:46:10.641Z\",\n            \"updatedAt\": \"2026-09-09T23:46:10.641Z\",\n            \"__v\": 0\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Application Status (Accept/Reject)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"accepted\" \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/application/:applicationId/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "application",
+                ":applicationId",
+                "status"
+              ],
+              "variable": [
+                {
+                  "key": "applicationId",
+                  "value": "6aa1efc223a627fc43d89809"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Application Status (Accept/Reject)",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"status\": \"accepted\" \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/application/:applicationId/status",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "application",
+                    ":applicationId",
+                    "status"
+                  ],
+                  "variable": [
+                    {
+                      "key": "applicationId",
+                      "value": "6aa1efc223a627fc43d89809"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "662"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"296-LnhEpjgxy7c9ORcsM+vH3h1OHAM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 09 Sep 2026 23:55:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Application marked as accepted successfully\",\n    \"data\": {\n        \"application\": {\n            \"userCV\": {\n                \"secure_url\": \"C:\\\\Users\\\\XEONST~1\\\\AppData\\\\Local\\\\Temp\\\\b4d3e1dcc0dadfe206c8f63fec4cf9d7\",\n                \"public_id\": \"b4d3e1dcc0dadfe206c8f63fec4cf9d7\"\n            },\n            \"_id\": \"6aa1efc223a627fc43d89809\",\n            \"jobId\": {\n                \"_id\": \"6aa1ed5e23a627fc43d89808\",\n                \"jobTitle\": \"Node.js Backend Developer\",\n                \"companyId\": \"6aa1e73e4a36ae4b20fec98b\"\n            },\n            \"userId\": {\n                \"_id\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n                \"firstName\": \"Amr\",\n                \"lastName\": \"Kilany\",\n                \"email\": \"amrkilanyedu@gmail.com\",\n                \"username\": \"Amr Kilany\",\n                \"id\": \"6aa1e3ae12f2d5ef0b3dcabd\"\n            },\n            \"status\": \"accepted\",\n            \"createdAt\": \"2026-09-09T23:46:10.641Z\",\n            \"updatedAt\": \"2026-09-09T23:55:27.166Z\",\n            \"__v\": 0\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Export Applications to Excel",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/application/company/6aa1e73e4a36ae4b20fec98b/excel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "application",
+                "company",
+                "6aa1e73e4a36ae4b20fec98b",
+                "excel"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Export Applications to Excel",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/application/company/6aa1e73e4a36ae4b20fec98b/excel",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "application",
+                    "company",
+                    "6aa1e73e4a36ae4b20fec98b",
+                    "excel"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                },
+                {
+                  "key": "Content-Disposition",
+                  "value": "attachment; filename=applications-6aa1e73e4a36ae4b20fec98b-today.xlsx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:04:12 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [],
+              "body": "PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]���\tY\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000[Content_Types].xml��Mn�0\u0010��=E�-J\f]TUE¢��\u0016��\u0000�xB,\u001c���w\u0012(�* �`\u0013+�7�{��\u0019O��I�\u0018H;��Q6\u0014\t��)m\u0017������\"�\bV�q\u0016s�C\u0012��n<�y���-墎�?IIe�\rP�\n<Z�T.4\u0010�6,��r\t\u000b����,��hc\u001a[\u000fQ��X����eˏ�A\u0002\u001a\u0012��^زr\u0001�\u001b]B�\\[���\u001e\b\u0019wv\u001a���\u0001\u000b�\n    <Ih+�\u0001��w�L�\n�\u0019��\u0006\r���ȍ\u000b�/��e�\u0013)]U�\u0012�+W\r�d�\u0003��\u001a16&�֬\u0001m\u0007��NL�[F7\u000er���\u0011�}��z}�Φ\u0007Hqg�n=�δ�\\C@�\u0011\u0003\u001f��\u0007��}�]_I��i�\rS�m����<�\u0011\r��]����;�l�!�ˣ=\u0012���b;+��\u0004[v?��\u001bPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0006\u0000\u0000\u0000_rels/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]�I��\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000_rels/.rels���N�0\f@�|E���nH\b��� ��&4>�$n\u001b���ă�@\f�i\u0007�q��g���<��R�\u001c\f,�\u001a\u0014\u0005�·����iq\u000f*\u000b\u0006�#\u00072p�\f��f�L#J�ɽ�Y\u0015H�\u0006z���u�=M�+�\u0014�O�iB)���v������t�ɀ愩��@ں%��1�5ln[o��a� gZ��(dL\u001d��y�W�*P��]V׻�=��HС���h\u0011S�N��Z�u\u001c�]\t�όKB���\u001c���#wY\tc�2�'7�|\u0000PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000xl/PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000xl/_rels/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000xl/_rels/workbook.xml.rels���j�0\u0010D��\n��ZvZJ)�s)�\\[�\u0003���LlIh7m��U\u001bH\u001c\b�\u0007�Ĭؙ�H���8�OL�\u0007��*J\u0010�M���\u0014|4��g\u0010��[=\u0004�\n&$��w�7\u001c4�\u001dr}$�M<)p��EJ2\u000eGME���M\u001bҨ9��ɨ�^w(We�$��\u0003�\u000bO��\n��V �)��C��\u0006_�9���J�$���/\u001a�:d\u0005G]d\u001f���WK�s��s��<\u000e�[\f\u000f�V�tB��)?���\u0016��0_!��!�\u0019�4�E�ǩ\u0019y���\u001fPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000xl/worksheets/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]�z�L\u0002\u0000\u0000�\u0005\u0000\u0000\u0018\u0000\u0000\u0000xl/worksheets/sheet1.xml�T�n�0\u0010��+\b�cJ�#�a9H�\u001a-�\u0002A��g��,\"�V �G��]Q�*;��^l�\u000eg�Y.w~0��u\nʔƃ�\u0012Y\n�T�I�����\u001d%��2�\u001aJ��W�����|\u000f��\u0015Rz�\u0002�Ki�}5c̉B\u001a�\u0006P�\u0012�\u001c��\u001eC�a���g�d4K�h�\fW%m\u0014f�\u001a\r�s%�\u0012����7\"Vj����P�;�\u0019q����e[�\b0\u0015J��V�5�Rb��˦\u0004��\u001am\u001f�\u0011\u0017G�\u0010��7JXp��\u0001ʵ\u0007}�yʦ\f�\u0016�L������<�\u000f�l�P�����p�'K2����a�Y�M��Ɣ��kUʯr'5B)�Ns��C.\u001ct��.�\u0013X�����\u0016\u0002�\u000b�Ĩ���,?����|��\u0004�\u0010[���j\u0012qKk\bIKH:�0�H\u0018����\u001d.\u0013F-at��-a�\u0011�˄IK��c\u0007�\u0014+�ʒ{��[�\u0013\u001b��*^w~<��S�h���a��\u0001\u0017c�a�[Ds��u[�c\u001f�O��>��b�>6<�>���)��c�\u000ech�������79���nϼ���3o}lz歏�g�\\���;ֻŊo�7n7�tD�<����6�,|{��\u0017��\u001a<��1*�IK[G��9�?\u0006���!��\"`\u0015\u0016+L��V`���#\u0019�\u0001\u0001��\u0014vx2\u001dM'��\u0014uq\f{%�\u0001\u001c&q\b�\u0011��\\�g�:�\t��\u0010:�\u001b͋?PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]�\u0001�\u001f\u0001\u0000\u0000\u0000\u0002\u0000\u0000\u0014\u0000\u0000\u0000xl/sharedStrings.xmle�MO\u00021\u0010�����w��\u0015W ���u��E�x+�\b�~��,�o�D�����ygޙ��[C�\u0010����e�)\u0001'��n�ҷ��hBID�0�AK\u000f\u0010鼻hbD�J]l�\u0016��1\u0016�\u0016�����%��\u0015��a�b\u001f@��\u0005@kX�yͬЎ\u0012�\u0007�)��dp�k��?�k��\u001a�\u0016}o�\u0014\u000e�RXh\u0018v\r;�_����\\|�km�,\u0007����'�&+���+\n\u001cb���A�{�g\u0015\u000b\u001bȳ6�\u001dr\"l؝\u0000��fs�����.^�zrU��k���WP|Fr+�\u000e\\��=���g�\b)�GP�^�\u001e�i:��r6�g%/�q���c�\u000b�\u001fPK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000xl/theme/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]v�0�!\u0006\u0000\u0000\u0019\u001f\u0000\u0000\u0013\u0000\u0000\u0000xl/theme/theme1.xml�YMo�6\u0018��W\u0010���R'�SĎ�nm� q;�HK�Ć\u0012\u0005�N���\u001e\u0007\f\u0018�\r�\f�m�a[�\u0016إ�5�:l\u001dп�Wև)�j�&�P 98\"�<�\u0017��%i_�q\u001c2tH��<�X��5\u000b���\u001e���u8�Ҷ�T8�0�\u0011�XS\"�\u001b�\u001f]�\u001b* !A@��\u0006�X�R�mK\u0017����c\u0012��1\u0017!V0\u0014��\t|\u0004bCf7j�5;�4�P�C�zo<�.A�D���r�}\u0006\u001f���\u0019��}w�S�h�>�/���\u0004:Ĭc�.�\u001f\rɱ�\u0010�R���U��Y6��9��*�F\u001d��rjN�\u000e\u001a)U���[\u001f�֯mϵ42-\u0006h�����s�)\u0004�.�]_��\u0006�z�����g��^ͩ�\u0016(���2e���:�eJS���)��Zk�Q��4�c��뭕)�FY[�\f����\u0016(),`4:X&$�=_�9h��-3�\r�v�!\u001a��R0�\u0011�ʌ\f�#.\u0006�H�\u001e+\u001a!5��\u0018����p$(�i�\u001b\u0004k��9W.�%\n�t\u0005�U��$�P>s̛�?�y�\u001c�y����ǿ�\n        <yr��\u0017\u0013�\u0016�|����/���3����_?��� u�\u001f?��o_U ��|�ͳ?_<{��\u0017��Ԅ�\u0012x��4$\u0012�%Gh����I\u0005\u0019�3R�\u0001�%\n\u000e\u0000jB�UPBޝbf\u0004vI9�\u000f\u0004�\u000b#���Q���@L\u00145!o\u0007a\t��9�ra��v�N�i\u0012�\u0015��D\u0007�a|hT�[X��$�ܦF����L�e���'\u0011Q(y�\u000f\b1�\u001eRZ��\u000eu\u0005�|��C����\u00033�#efݢ!,��h#�z)B;\u000fP�3��mrX�B�`f\u0014JX)�7�D��l5\u000e�\u000e��U`4t*�RूE�\t��\u0011)��{bZ2�6�6e΀\u001d6\r�P��\u0011z\u0007s�C��A/�al��F�\u000e�X\u001e@�b�˕�\u000e^��d\f\u000b���@�:c�ߧ~`N���D\u0018k��r�N�\u0018�(�\u0004ʽ<��[;;���/;�Bg߂��XQ���\u0012��v�m<�v\tT�e\u0013�l�M�m\u0015�>Z�֬m�ȞJ\n�\u000f�c�ؾ�2rG��^���\u0000f�ьW�\u001a�\u0000\u001es�e�/�l�\u0004W�R\u0015�\u00078\u0006]�T�/s��D1�pe��\u0015�Wc\n��&��2\u000bx�v���7K��BR:�eI]3\u0011����󫬧ؕu֝\n��i:m=�P[\b'_k��\u001a�\u0005�E�\u0011/Y�LH�X�{��5}�\u0002�\u0011Ӽ�k�����і��{�\u0010w�P{,Z\u0018�����4\u001c\u000b�8�Xc8��c\u0018�L�4(���c�*�u��]�~�\"��5�����XH��e�\u0012g�/z\"͑��J�rQ�\u0018�Ъ�4����\u0016{i��xL\\U5���|���\u000f�#4b\u0013����V�z\u001e��m4��oeYY.�\u0016�N�+\u000b�8�YA���H\t頰#\u001d�F�U>��O�\u000b�ɹ�)��]8\u00137�ٳ\u000b\u0007\u0005�Q��\u001d�\u000b\u0015ph]q@݁��E�\u0011�CP:�i�%_�'6�C�ݥR���\u0007j��HPh�*\u0010�������\u001b�]7\u0017�����2�\u001eF䐰aR�kI0,\u0014��'�J�\\ZH�X�#�\u0001\u001c�Z／�յζ����C�T��o�j����Q�~�y�N����p�A�\u0007�\u0000T�L;'\u000f�\u001ed\u0006*�\u0012\br�J;+�br\u0004��u?\u0013a����]�\t\u0017~z��߬���J�\u0013�\u0010~���ۆ����R:\\�q��\u001e�\u0005�p\t��lJ�0̞vE���{���ɴ�d�)6\b\u0016�1��q��\u000bQ�~��\u001f\u0019�2=I(\nns\u0015n��6���X�_p6�i���<�2��?ed\u00190o��ر��Q\\ɓ�(��|�(����\u0014Eu|j\u0014�����$�J�^��\u001e���%��PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]\u0005;�^v\u0002\u0000\u0000\u0003\u0006\u0000\u0000\r\u0000\u0000\u0000xl/styles.xml��]o�0\u0014���+,�S\u0003\r,��ji�T��*5�v�I��\u0003\u0019ӑM��;\u0006\u0012\u0012uڦ��ǯ����3��@/�4\\�\u0014\u0007W>FL\u0015��j�⯛ܛc�X�J*�b)>�\u0006�d\u001f��\u001e\u0004{�3f\u0011\u0010T�⽵�����3I�+]3\u0005#�6�Z�\u001dij�hٸIR���c\")Wx ,e�?\u0010I�s[{��5�|�\u0005�����,��;�\r�\np�\u00053Z�.�Mx��K��H^\u0018���^\u0001���\u0005{�uA\u0016�\u0016\u0013\t�o#\u0005\u0011��a�YRie\u001bT�VY�}�;��g����\r9q�ʒB\u000bm��R��\u0004t*�8�\u0017*R\u001c:�7�\u0006Ar؊^�1\bA?G�c�-\u0015|k�\u0013�P�o\u001a�r!N�B<\bY\u0002\u001bn�Q9t�\u0018o\u000e5�Qp5\u0006L���읡� ��&�\r��jS�U���(e�`��\t������&n�Z��,)9�iE�C\u001eg�\u0001`\u000b&ē��ߪ\u000bvW!��\\��2�p���!\u0018\u001a�\u00013t\u001c��6�ߍE]u�?��B\u0017����I���{\u001bbB�m˅��\u000f��Yv��~Ժ�rY\u0005\u0018%�h+��4��)��J�����_�\u001d�����T\u0010�\u001a��\u000f��[�\u001a��w����]\u001ezs5�f�,�\u0016�j�E���z�/�п�u�j��fǇ\u0006�e# ˌ�\u001d�?MZ��:��~�����E\u0018������k?�f1�{��:��(\b��lu\u0017�љ�荿�O�`2\u001f--�Lp�.�o�U8$��e\u0011�x\u0012d����PK\u0003\u0004\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000docProps/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]/\u0001\u0000\u0000)\u0003\u0000\u0000\u0010\u0000\u0000\u0000docProps/app.xml�R�n�0\f��+\f�\u001b9�P\f���H7��b\u0001�vgV�c��$�����';��;��H><==R�\u001e:W���\u0006_��\u0014\u0005z\u0013j���x�}��*\nb�5��\u0012G$q�?�M\n\u0011\u0013[�\"+x�D�\u001cWR�i�\u0003Z�ϓ&�\u000e8�i/C�X����u�Y^���\u0003�������8)�z�_�:��\u001f=�1�iu\u0017��\u00068R?Z�\u0002���o\u0007�N��Pe�-��d��K%��\u001ap��º\u0001G��{C= \f�m�&Ҫ�U��C*��Ω]��\u0005\b\u0007;��!Y�,N�S1b\u0017���\u0015�+��LJN�\u0011ιsl���H���('#\u0019_Z�YvH?�\r$�������A�<�\"�����_/�C\u0017��\u0018�\u001e��\u001e\u0007�~X�JOq\u0017���eSm[HX��L{�\u001a�!\u001bNn�[�{�Ϝ���*�O���7��sY��p�)�~��\u000fPK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]J!�\b^\u0001\u0000\u0000�\u0002\u0000\u0000\u0011\u0000\u0000\u0000docProps/core.xml�R�N�0\u0010��\u0015�艹\u0016U\u0010��\u0004�'*!Q\u0004�f�mk�ؖ�%���<���'n;;��}8�\u001f�\"�\u0001��3��\u0018�@\u000b#�����j\u0011ߑ�#ג\u0017FÌ���<�ɄM�q��\u0005�\n|\u0014��O���-�M)�b\u000b%���Ё\\\u001bWr\f�m��b�7@ǌMi\t�%GN\u001b��\u000e����b��{W�\u0006RP(�\u0004��&����\b��W\u000bZ�LY*�-\\�\u001e�A}�j\u0010VU5�&�4��Џ��k;j�t�*\u0001$ϤH�\u0003���oz�M�3z�kxTX@ަ�0D~��\r\u0002��\u0000B,�\u000b�,�;u�E\"�c\u0007ue��@ͥ8�Ƹ��N(��{\\�s�\u0015ȇ���_*�w��\u00002\n;I�\r\u001e�����jA�1\u001bOcv\u001f'l�X�n�d���|Q2,�G��x4�����/PK\u0003\u0004\n\u0000\u0000\u0000\b\u0000�\u0000*]\u0013��\u0010\\\u0001\u0000\u0000w\u0002\u0000\u0000\u000f\u0000\u0000\u0000xl/workbook.xml��Ko�0\f���\u0014Q�\u0016\u0018l\u0015\u0005m�&q�8l��ĥ\u0011y)Iy|��-�4qᒇ\u001d������l49B��ْ��\u0012��Ie�%���\u0018=Q\u0012\u0013��kg��\u0017�t�zX�\\8�;\u0010����uJ�`,�\u001a\f�c����r���װg�\u0007�2�\u0000�h6ɲ93\\Y�\u0013�p\u000f�U�\u0012��Dc��\u001e\u0012@��c�|\u001chF܃3<\u001c\u001a?\u0012�xD�V��A)1���\u000b|���s�8��x�6J\u0004\u0017]�ƈ����7�X��%������w�p�?�i�hJ4��]�\u0004���S�\u0013�3�ƿ6J��y�M)[�Mb\u001b���7:}����3�ϲ<�\u0004S&\b۠�\\\\���v��u'ݺ����Nы�Z����?Hh<���+��P�8l�e�\u0001&�\u0016(��:�\"�&��� u�\u000bPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]���\tY\u0001\u0000\u0000�\u0004\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000[Content_Types].xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0006\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0001\u0000\u0000_rels/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]�I��\u0000\u0000\u0000K\u0002\u0000\u0000\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0001\u0000\u0000_rels/.relsPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0002\u0000\u0000xl/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000�\u0002\u0000\u0000xl/_rels/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]�$�V�\u0000\u0000\u0000�\u0002\u0000\u0000\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\b\u0003\u0000\u0000xl/_rels/workbook.xml.relsPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u000e\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000)\u0004\u0000\u0000xl/worksheets/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]�z�L\u0002\u0000\u0000�\u0005\u0000\u0000\u0018\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000U\u0004\u0000\u0000xl/worksheets/sheet1.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]�\u0001�\u001f\u0001\u0000\u0000\u0000\u0002\u0000\u0000\u0014\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0006\u0000\u0000xl/sharedStrings.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000(\b\u0000\u0000xl/theme/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]v�0�!\u0006\u0000\u0000\u0019\u001f\u0000\u0000\u0013\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000O\b\u0000\u0000xl/theme/theme1.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]\u0005;�^v\u0002\u0000\u0000\u0003\u0006\u0000\u0000\r\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u000e\u0000\u0000xl/styles.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\u0000\u0000�\u0000*]\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000B\u0011\u0000\u0000docProps/PK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]/\u0001\u0000\u0000)\u0003\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000i\u0011\u0000\u0000docProps/app.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]J!�\b^\u0001\u0000\u0000�\u0002\u0000\u0000\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0016\u0013\u0000\u0000docProps/core.xmlPK\u0001\u0002\u0014\u0000\n\u0000\u0000\u0000\b\u0000�\u0000*]\u0013��\u0010\\\u0001\u0000\u0000w\u0002\u0000\u0000\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0014\u0000\u0000xl/workbook.xmlPK\u0005\u0006\u0000\u0000\u0000\u0000\u0010\u0000\u0010\u0000�\u0003\u0000\u0000,\u0016\u0000\u0000\u0000\u0000"
+            }
+          ]
+        },
+        {
+          "name": "Get Company Applications",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/application/company/6aa1e73e4a36ae4b20fec98b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "application",
+                "company",
+                "6aa1e73e4a36ae4b20fec98b"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Company Applications",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/application/company/6aa1e73e4a36ae4b20fec98b",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "application",
+                    "company",
+                    "6aa1e73e4a36ae4b20fec98b"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "676"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2a4-u6YJprKBiuC7x9S3avRF+0cUCVM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:00:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Applications retrieved successfully\",\n    \"data\": {\n        \"applications\": [\n            {\n                \"userCV\": {\n                    \"secure_url\": \"C:\\\\Users\\\\XEONST~1\\\\AppData\\\\Local\\\\Temp\\\\b4d3e1dcc0dadfe206c8f63fec4cf9d7\",\n                    \"public_id\": \"b4d3e1dcc0dadfe206c8f63fec4cf9d7\"\n                },\n                \"_id\": \"6aa1efc223a627fc43d89809\",\n                \"jobId\": {\n                    \"_id\": \"6aa1ed5e23a627fc43d89808\",\n                    \"jobTitle\": \"Node.js Backend Developer\",\n                    \"seniorityLevel\": \"Mid-Level\"\n                },\n                \"userId\": {\n                    \"_id\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n                    \"firstName\": \"Amr\",\n                    \"lastName\": \"Kilany\",\n                    \"email\": \"amrkilanyedu@gmail.com\",\n                    \"mobileNumber\": \"01068561970\",\n                    \"username\": \"Amr Kilany\",\n                    \"id\": \"6aa1e3ae12f2d5ef0b3dcabd\"\n                },\n                \"status\": \"accepted\",\n                \"createdAt\": \"2026-09-09T23:46:10.641Z\",\n                \"updatedAt\": \"2026-09-09T23:55:27.166Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "Get Chat History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{supabase_service_role_api_key_19vf}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/chat/6aa1e3ae12f2d5ef0b3dcabd",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "chat",
+                "6aa1e3ae12f2d5ef0b3dcabd"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin (GraphQL)",
+      "item": [
+        {
+          "name": "Get Admin Dashboard Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{json_web_token_14he}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query {\r\n  getAdminDashboardData {\r\n    users {\r\n      id\r\n      firstName\r\n      lastName\r\n      email\r\n      role\r\n    }\r\n    companies {\r\n      id\r\n      companyName\r\n      companyEmail\r\n    }\r\n  }\r\n}",
+                "variables": ""
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "graphql"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Admin Dashboard Data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{json_web_token_14he}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query {\r\n  getAdminDashboardData {\r\n    users {\r\n      id\r\n      firstName\r\n      lastName\r\n      email\r\n      role\r\n    }\r\n    companies {\r\n      id\r\n      companyName\r\n      companyEmail\r\n    }\r\n  }\r\n}",
+                    "variables": ""
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3000/api/v1/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "api",
+                    "v1",
+                    "graphql"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=31536000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "392"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"188-2hXTT79Ji06nzzPDUz0+qjXJiDc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 10 Sep 2026 00:54:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"data\": {\n        \"getAdminDashboardData\": {\n            \"users\": [\n                {\n                    \"id\": \"6aa1d2b416a1cf44386e1f02\",\n                    \"firstName\": \"Amr\",\n                    \"lastName\": \"Kilany\",\n                    \"email\": \"amrkilany.dev@gmail.com\",\n                    \"role\": \"USER\"\n                },\n                {\n                    \"id\": \"6aa1e3ae12f2d5ef0b3dcabd\",\n                    \"firstName\": \"Amr\",\n                    \"lastName\": \"Kilany\",\n                    \"email\": \"amrkilanyedu@gmail.com\",\n                    \"role\": \"ADMIN\"\n                }\n            ],\n            \"companies\": [\n                {\n                    \"id\": \"6aa1e73e4a36ae4b20fec98b\",\n                    \"companyName\": \"TechCorp\",\n                    \"companyEmail\": \"hr@techcorp.com\"\n                }\n            ]\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_02ln",
+      "secret": true
+    },
+    {
+      "key": "bearer_token_0tul",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_19vf",
+      "secret": true
+    },
+    {
+      "key": "bearer_token_0sq8",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_14he",
+      "secret": true
+    },
+    {
+      "key": "bearer_token_1c2e",
+      "secret": true
+    }
+  ]
+}

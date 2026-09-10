@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
-import UserModel from "../../DB/Models/User.model.js";
+import UserModel, { type IUser } from "../../DB/Models/User.model.js";
+import type { HydratedDocument } from "mongoose";
 import * as DB from "../../DB/database.repository.js";
 import {
   BadRequestException,
@@ -7,13 +8,15 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from "../../Utils/response/error.response.js";
+import { OAuth2Client } from "google-auth-library";
 import { successResponse } from "../../Utils/response/success.response.js";
 import { compareHash, generateHash } from "../../Utils/security/hash.security.js";
 import { encrypt } from "../../Utils/security/encryption.security.js";
 import { generateToken } from "../../Utils/security/token.security.js";
 import { generateOtpCode } from "../../Utils/security/generateOtpCode.security.js";
 import { emailEvent } from "../../Utils/events/email.event.js";
-import { TokenTypeEnum } from "../../Utils/enums/user.enum.js";
+import { TokenTypeEnum, ProviderEnum } from "../../Utils/enums/user.enum.js";
+import { env } from "../../config/config.service.js";
 
 export const signUp = async (req: Request, res: Response): Promise<void> => {
   const { firstName, lastName, email, password, mobileNumber, DOB, gender, role } = req.body;
@@ -40,7 +43,6 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
   const rawOtp = generateOtpCode();
   const hashedOtp = await generateHash({ plainText: rawOtp });
   const otpExpiresIn = new Date(Date.now() + 10 * 60 * 1000);
-
 
   const user = await DB.create({
     model: UserModel,
@@ -236,7 +238,6 @@ export const resetPassword = async (req: Request, res: Response): Promise<void> 
     throw BadRequestException("Invalid OTP verification code");
   }
 
-  
   user.password = newPassword;
   user.OTP = user.OTP?.filter((o) => o.type !== "forgetPassword") || [];
   await user.save();
@@ -260,5 +261,76 @@ export const refreshToken = async (req: Request, res: Response): Promise<void> =
     statusCode: 200,
     message: "Access token refreshed successfully",
     data: { accessToken },
+  });
+};
+
+const client = new OAuth2Client(env.GOOGLE_CLIENT_ID);
+
+export const signupWithGoogle = async (req: Request, res: Response) => {
+  const { idToken } = req.body;
+
+  const ticket = await client.verifyIdToken({
+    idToken,
+    audience: env.GOOGLE_CLIENT_ID,
+  });
+
+  const payload = ticket.getPayload();
+  if (!payload || !payload.email) {
+    return BadRequestException("Invalid Google token");
+  }
+
+  const existingUser = await UserModel.findOne({ email: payload.email });
+  if (existingUser) {
+    return ConflictException("User already exists, please login");
+  }
+
+  const profilePic = payload.picture ? { secure_url: payload.picture } : undefined;
+
+  const user: HydratedDocument<IUser> = await UserModel.create({
+    firstName: payload.given_name || "Google",
+    lastName: payload.family_name || "User",
+    email: payload.email,
+    isConfirmed: true,
+    provider: ProviderEnum.GOOGLE,
+    ...(profilePic && { profilePic }),
+  });
+
+  const accessToken = generateToken({ payload: { id: user._id.toString(), role: user.role } });
+  const refreshToken = generateToken({ payload: { id: user._id.toString(), role: user.role } });
+
+  return successResponse({
+    res,
+    statusCode: 201,
+    message: "Google signup successful",
+    data: { accessToken, refreshToken, user },
+  });
+};
+
+export const loginWithGoogle = async (req: Request, res: Response) => {
+  const { idToken } = req.body;
+
+  const ticket = await client.verifyIdToken({
+    idToken,
+    audience: env.GOOGLE_CLIENT_ID,
+  });
+
+  const payload = ticket.getPayload();
+  if (!payload || !payload.email) {
+    return BadRequestException("Invalid Google token");
+  }
+
+  const user = await UserModel.findOne({ email: payload.email });
+  if (!user) {
+    return NotFoundException("Account not found, please sign up first");
+  }
+
+  const accessToken = generateToken({ payload: { id: user._id.toString(), role: user.role } });
+  const refreshToken = generateToken({ payload: { id: user._id.toString(), role: user.role } });
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Google login successful",
+    data: { accessToken, refreshToken, user },
   });
 };

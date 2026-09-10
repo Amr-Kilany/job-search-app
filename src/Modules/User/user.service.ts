@@ -124,3 +124,63 @@ export const getPublicProfile = async (req: Request, res: Response): Promise<voi
     data: { user },
   });
 };
+
+export const uploadProfilePic = async (req: Request, res: Response) => {
+  if (!req.file) {
+    return BadRequestException("Please upload an image file");
+  }
+
+  const user = await UserModel.findByIdAndUpdate(
+    req.user!._id,
+    { profilePic: { secure_url: req.file.path, public_id: req.file.filename } },
+    { new: true },
+  );
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Profile picture uploaded successfully",
+    data: { user: user! },
+  });
+};
+
+export const uploadCoverPic = async (req: Request, res: Response) => {
+  if (!req.file) {
+    return BadRequestException("Please upload an image file");
+  }
+
+  const user = await UserModel.findByIdAndUpdate(
+    req.user!._id,
+    { coverPic: { secure_url: req.file.path, public_id: req.file.filename } },
+    { new: true },
+  );
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Cover picture uploaded successfully",
+    data: { user: user! },
+  });
+};
+
+export const deleteProfilePic = async (req: Request, res: Response) => {
+  const user = await UserModel.findByIdAndUpdate(req.user!._id, { $unset: { profilePic: "" } }, { new: true });
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Profile picture deleted successfully",
+    data: { user: user! },
+  });
+};
+
+export const deleteCoverPic = async (req: Request, res: Response) => {
+  const user = await UserModel.findByIdAndUpdate(req.user!._id, { $unset: { coverPic: "" } }, { new: true });
+
+  return successResponse({
+    res,
+    statusCode: 200,
+    message: "Cover picture deleted successfully",
+    data: { user: user! },
+  });
+};

@@ -10,6 +10,8 @@ const router = Router();
 router.post("/signup", validationMiddleware(SignUpDto, "body"), authService.signUp);
 router.post("/confirm-email", validationMiddleware(ConfirmEmailDto, "body"), authService.confirmEmail);
 router.post("/login", validationMiddleware(LoginDto, "body"), authService.login);
+router.post("/signup-google", validationMiddleware(SignUpDto, "body"), authService.signupWithGoogle);
+router.post("/login-google", authService.loginWithGoogle);
 router.post("/forget-password", validationMiddleware(ForgetPasswordDto, "body"), authService.forgetPassword);
 router.post("/reset-password", validationMiddleware(ResetPasswordDto, "body"), authService.resetPassword);
 
